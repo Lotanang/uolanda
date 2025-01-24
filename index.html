@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    p {
+      font-size: 1.5em;
+      margin-bottom: 40px;
+      animation: fadeIn 3s ease-in-out;
+    }
+    .buttons {
+      display: flex;
+      gap: 20px;
+      animation: fadeIn 4s ease-in-out;
+    }
+    .button {
+      font-size: 1.5em;
+      color: #ff6f61;
+      background: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .button:hover {
+      background: #ff6f61;
+      color: #fff;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .heart {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      transform: rotate(-45deg);
+      animation: float 6s infinite ease-in-out;
+    }
+    .heart:before,
+    .heart:after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+    }
+    .heart:before {
+      top: -5px;
+      left: 0;
+    }
+    .heart:after {
+      top: 0;
+      left: -5px;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(-45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(-45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Uolenda!, Will You Be My Valentine?</h1>
+  <p>
+    As a 6'5" dark-skinned, nonchalant dreadhead with dashing looks (I’m kidding), 
+    I’ve come to care about you in a way I didn’t think I would. 
+    YOU MEAN A LOT TO ME!
+  </p>
+  <p><strong>- Lotanang</strong></p>
+  <div class="buttons">
+    <button class="button" onclick="respond('yes')">Yes</button>
+    <button class="button" id="noButton" onmouseover="moveNoButton()">No</button>
+  </div>
+
+  <!-- Floating hearts -->
+  <script>
+    // Generate floating hearts
+    for (let i = 0; i < 50; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDelay = `${Math.random() * 5}s`;
+      document.body.appendChild(heart);
+    }
+
+    // Response for "Yes" button
+    function respond(answer) {
+      if (answer === 'yes') {
+        alert('This means something to me man! Ahhhhhhhhh my shaylaaaaaa. You\'ve officially turned me into a finished man.');
+      }
+    }
+
+    // Make the "No" button move
+    function moveNoButton() {
+      const noButton = document.getElementById('noButton');
+      const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+      noButton.style.position = 'absolute';
+      noButton.style.left = `${x}px`;
+      noButton.style.top = `${y}px`;
+    }
+  </script>
+</body>
+</html>
